@@ -1,0 +1,257 @@
+<?xml version="1.0"?>
+<robot name="patrick_the_robot">
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.005" radius="0.2"/>
+      </geometry>
+      <material name="black">
+          <color rgba="0 0 0.118 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <link name="base_laser">
+    <visual>
+      <geometry>
+        <box size="0.05 0.25 0.046"/>
+      </geometry>
+      <material name="blackest"/>
+        <color rgba="0.12 0.05 0.05 1"/>
+      <material/>        
+    </visual>
+  </link>  
+  
+  <link name="laptop_hor">
+    <visual>
+      <geometry>
+        <box size="0.32 0.18 0.02"/>
+      </geometry>
+    <origin rpy="0 0 1.5708"/>
+      <material name="white"/>
+         <color rgba="1 1 1 1"/>
+      <material/>        
+    </visual>
+  </link>
+  
+  <link name="laptop_ver">
+    <visual>
+      <geometry>
+        <box size="0.32 0.18 0.01"/>
+      </geometry>
+    <origin rpy="1.4 0 1.5708"/>
+        <material name="white_xxx"/>
+          <color rgba="0 0 0 1"/>
+        <material/>        
+    </visual>
+  </link>
+  
+  <link name="left_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.02" radius="0.05"/>
+      </geometry>
+    <origin rpy="0 1.5708 1.5708" xyz="0 0 0"/>
+        <material name="blue_dark"/>
+          <color rgba="0.3333 0.3333 0.498 1"/>
+        <material/>        
+    </visual>
+  </link>
+  
+  <link name="right_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.02" radius="0.05"/>
+      </geometry>
+    <origin rpy="0 1.5708 1.5708" xyz="0 0 0"/>
+        <material name="blue_dark"/>
+          <color rgba="0.3333 0.3333 0.498 1"/>
+        <material/>        
+    </visual>
+  </link>  
+  
+  <link name="small_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.02" radius="0.0375"/>
+      </geometry>
+    <origin rpy="0 1.5708 1.5708" xyz="0 0 0"/>
+        <material name="blue_dark"/>
+          <color rgba="0.3333 0.3333 0.498 1"/>
+        <material/>        
+    </visual>
+  </link>
+  
+  <link name="pillar_small_wheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.0125" radius="0.03"/>
+      </geometry>
+      <material name="black_slightly">
+        <color rgba="0.123 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+  
+  <link name="base_link_2">
+    <visual>
+      <geometry>
+        <cylinder length="0.005" radius="0.2"/>
+      </geometry>
+      <material name="black">
+          <color rgba="0 0 0.118 1"/>
+      </material>
+    </visual>
+  </link>
+  
+  <link name="pillar_1">
+    <visual>
+      <geometry>
+        <cylinder length="0.1" radius="0.005"/>
+      </geometry>
+      <material name="black_slightly">
+        <color rgba="0.123 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+  
+  <link name="pillar_2">
+    <visual>
+      <geometry>
+        <cylinder length="0.1" radius="0.005"/>
+      </geometry>
+      <material name="black_slightly">
+        <color rgba="0.123 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+  
+  <link name="pillar_3">
+    <visual>
+      <geometry>
+        <cylinder length="0.1" radius="0.005"/>
+      </geometry>
+      <material name="black_slightly">
+        <color rgba="0.123 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+  
+  <link name="pillar_4">
+    <visual>
+      <geometry>
+        <cylinder length="0.1" radius="0.005"/>
+      </geometry>
+      <material name="black_slightly">
+        <color rgba="0.123 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+  
+  <link name="pillar_kinect_1">
+    <visual>
+      <geometry>
+        <cylinder length="0.346" radius="0.005"/>
+      </geometry>
+      <material name="black_slightly">
+        <color rgba="0.123 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+  
+  <link name="pillar_kinect_2">
+    <visual>
+      <geometry>
+        <cylinder length="0.346" radius="0.005"/>
+      </geometry>
+      <material name="black_slightly">
+        <color rgba="0.123 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <joint name="base_to_left_wheel" type="fixed">
+    <parent link="base_link"/>
+    <child link="left_wheel"/>
+    <origin xyz="0 -0.181 -0.05"/>
+  </joint>
+  
+  <joint name="base_to_right_wheel" type="fixed">
+    <parent link="base_link"/>
+    <child link="right_wheel"/>
+    <origin xyz="0 0.181 -0.05"/>
+  </joint>
+  
+  <joint name="base_to_small_wheel" type="fixed">
+    <parent link="base_link"/>
+    <child link="small_wheel"/>
+    <origin xyz="0.15 0 -0.05"/>
+  </joint>
+  
+  <joint name="base_to_small_wheel_and_pillar_small_wheel" type="fixed">
+    <parent link="base_link"/>
+    <child link="pillar_small_wheel"/>
+    <origin xyz="0.15 0 -0.00625"/>
+  </joint>
+  
+  <joint name="base_to_laser" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_laser"/>
+    <origin xyz="-0.12 0 0.446"/>
+  </joint>
+  
+  <joint name="base_to_laptop_hor" type="fixed">
+    <parent link="base_link"/>
+    <child link="laptop_hor"/>
+    <origin xyz="0 0 0.11"/>
+  </joint>
+  
+  <joint name="base_to_laptop_ver" type="fixed">
+    <parent link="base_link"/>
+    <child link="laptop_ver"/>
+    <origin xyz="-0.09 0 0.2"/>
+  </joint>
+  
+  <joint name="base_to_base" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_link_2"/>
+    <origin xyz="0 0 0.1"/>
+  </joint>
+  
+  <joint name="base_to_pillar_1" type="fixed">
+    <parent link="base_link"/>
+    <child link="pillar_1"/>
+    <origin xyz="0.12 0.12 0.05"/>
+  </joint>
+  
+  <joint name="base_to_pillar_2" type="fixed">
+    <parent link="base_link"/>
+    <child link="pillar_2"/>
+    <origin xyz="-0.12 0.12 0.05"/>
+  </joint>
+  
+  <joint name="base_to_pillar_3" type="fixed">
+    <parent link="base_link"/>
+    <child link="pillar_3"/>
+    <origin xyz="0.12 -0.12 0.05"/>
+  </joint>
+  
+  <joint name="base_to_pillar_4" type="fixed">
+    <parent link="base_link"/>
+    <child link="pillar_4"/>
+    <origin xyz="-0.12 -0.12 0.05"/>
+  </joint>
+  
+  <joint name="base_to_pillar_kinect_1" type="fixed">
+    <parent link="base_link"/>
+    <child link="pillar_kinect_1"/>
+    <origin xyz="-0.12 0.12 0.273"/>
+  </joint>
+  
+  <joint name="base_to_pillar_kinect_2" type="fixed">
+    <parent link="base_link"/>
+    <child link="pillar_kinect_2"/>
+    <origin xyz="-0.12 -0.12 0.273"/>
+  </joint>
+
+</robot>

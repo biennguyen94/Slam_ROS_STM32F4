@@ -1,0 +1,7 @@
+<launch>
+    
+    <node name="teleop" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen" launch-prefix="xterm -e"/>
+
+    <node pkg="rviz" name="rviz" type="rviz" args="-d $(find patrick_the_robot)/launch/rviz/laser.rviz"/>
+	
+</launch>

@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find patrick_the_robot)/launch/freenect_throttle_3.launch" />
+  <include file="$(find patrick_the_robot)/launch/rtabmap_3.launch" />
+</launch>

@@ -1,0 +1,4 @@
+<launch>
+  <include file="$(find patrick_the_robot)/launch/thesis_4.launch" />
+  <include file="$(find patrick_the_robot)/launch/t_move_base.launch" />
+</launch>

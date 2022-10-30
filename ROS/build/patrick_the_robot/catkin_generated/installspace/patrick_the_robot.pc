@@ -1,0 +1,8 @@
+prefix=/home/biennguyen/catkin_ws/install
+
+Name: patrick_the_robot
+Description: Description of patrick_the_robot
+Version: 1.0.0
+Cflags: 
+Libs: -L/home/biennguyen/catkin_ws/install/lib 
+Requires: geometry_msgs nav_msgs roscpp rospy std_msgs tf sensor_msgs

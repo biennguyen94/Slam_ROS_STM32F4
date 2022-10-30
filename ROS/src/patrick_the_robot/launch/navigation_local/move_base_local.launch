@@ -1,0 +1,31 @@
+<launch>
+  <master auto="start"/>
+
+  <!-- Run patrick -->
+  <include file="$(find patrick_the_robot)/launch/patrick_urdf.launch" />
+	
+  <!-- Throttle the voxel grid that is being published for rviz -->
+	<!--<node ns="move_base_node/local_costmap" name="voxel_grid_throttle" pkg="topic_tools" type="throttle" args="messages voxel_grid 3.0 voxel_grid_throttled" />-->
+	
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find patrick_the_robot)/bonus/navigation_local/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find patrick_the_robot)/bonus/navigation_local/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find patrick_the_robot)/bonus/navigation_local/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find patrick_the_robot)/bonus/navigation_local/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find patrick_the_robot)/bonus/navigation_local/base_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find patrick_the_robot)/bonus/navigation_local/move_base_params.yaml" command="load" />
+    <rosparam file="$(find patrick_the_robot)/bonus/navigation_local/global_planner_params.yaml" command="load" />
+    <rosparam file="$(find patrick_the_robot)/bonus/navigation_local/navfn_global_planner_params.yaml" command="load" />
+  </node>
+	
+	<!-- costmap_2d markers -->
+	<!--
+  <node pkg="costmap_2d" type="costmap_2d_markers" name="voxel_visualizer">
+        <remap from="voxel_grid" to="move_base_node/local_costmap/voxel_grid_throttled"/>
+	</node>
+	-->
+	
+  <!--<node name="teleop" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen" launch-prefix="xterm -e"/>-->
+
+  <!--<node pkg="rviz" type="rviz" name="rviz" args="-d $(find patrick_the_robot)/launch/rviz/amcl.rviz"/>-->
+</launch>

@@ -1,0 +1,17 @@
+<launch>
+  <master auto="start"/>
+
+  <include file="$(find patrick_the_robot)/launch/erratic_navigation_slam/navigation_slam/slam_gmapping.launch" />
+  <include file="$(find patrick_the_robot)/launch/erratic_navigation_slam/navigation_slam/move_base_slam_2.launch" />
+	
+	<!-- costmap_2d markers -->
+	
+  <node pkg="costmap_2d" type="costmap_2d_markers" name="voxel_visualizer">
+        <remap from="voxel_grid" to="move_base/local_costmap/voxel_grid_throttled"/>
+	</node>
+	
+	
+  <!--<node name="teleop" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" output="screen" launch-prefix="xterm -e"/>-->
+
+  <!--<node pkg="rviz" type="rviz" name="rviz" args="-d $(find patrick_the_robot)/launch/rviz/amcl.rviz"/>-->
+</launch>
